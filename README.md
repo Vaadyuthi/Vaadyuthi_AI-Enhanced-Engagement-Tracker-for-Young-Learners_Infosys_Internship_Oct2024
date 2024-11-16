@@ -219,6 +219,8 @@ Essential for synchronization with audio and meeting playback standards.
 
 Output Screenshot:
 
+![1](https://github.com/user-attachments/assets/587ece74-6c36-41d6-85cd-cd6a170cf276)
+
 C. vid_save
 
 Saves the processed video in a specified format (e.g., MP4, AVI).
@@ -228,6 +230,8 @@ Allows configuration of compression and resolution for quality and compatibility
 Supports adding metadata like timestamps or annotations for better tracking.
 
 Output Screenshot:
+
+![2](https://github.com/user-attachments/assets/fe1954b3-657a-4df7-b408-224dd07a62e0)
 
 D. vid_stack
 
@@ -239,6 +243,8 @@ Supports temporal visualization, aiding in monitoring changes over time.
 
 Output Screenshot:
 
+![3](https://github.com/user-attachments/assets/fe3ded8b-302a-4083-9a11-51b571bbfd1c)
+
 E. vid_stream
 
 Captures live video from sources like webcams, IP cameras, or online streams.
@@ -248,6 +254,9 @@ Ideal for real-time applications like surveillance or live broadcasting.
 Enables integration with processing features like motion detection or object tracking.
 
 Output Screenshot:
+
+![4](https://github.com/user-attachments/assets/a80e02f1-3423-4b05-a405-9fd0e8bb8842)
+
 
 ANNOTATIONS
 
@@ -269,6 +278,8 @@ Commonly used in machine learning to separate training, validation, and test dat
 
 Output Screenshot:
 
+![5](https://github.com/user-attachments/assets/4aadac84-5846-47bf-b198-51a47eba478e)
+
 B. label
 
 Directory and File Handling:The code iterates through the label files in the specified label_dir and checks for corresponding images in image_dir. If the output directory does not exist, it creates it to save processed images with bounding boxes.
@@ -279,6 +290,8 @@ Output Image Saving:Each processed image with bounding boxes is saved to output_
 
 Output Screenshot:
 
+![gun](https://github.com/user-attachments/assets/e5f2cf79-5a83-4360-a449-106cd3d11274)
+
 C. Label Manipulate
 
 Modifies or adjusts labels to refine data categories or correct labeling errors.
@@ -288,6 +301,9 @@ Can be used to handle mislabeled data or to reassign labels to reflect more accu
 Often used during data cleaning and preprocessing phases to improve the quality of the dataset and ensure the accuracy of the model being trained.
 
 Output Screenshot:
+
+![6](https://github.com/user-attachments/assets/b7451501-1836-426f-85e6-c15e21b8ff9c)
+
 
 Face_Recognition
 
@@ -305,21 +321,111 @@ imutils == 0.5.4
 
 Developed Logics -
 
-A. Atten_save
+A. vaadyuthi_attendance_save
 
+Face Recognition and Detection:The code detects faces in real-time using the webcam, compares the detected face with a known face (Vaadyuthi), and identifies her if the match is above a certain confidence threshold.
 
-    B. Atten_score
-    C. Avg_atten_score
-    D. Excel_dt_sc
-    E. Excel_sc
-    F. Face_recognition
-    G. Landmark
-    H. Test
-    I. vaadyuthi_attendance_save
-    J. vaadyuthi_atten_score
-    K. vaadyuthi_avg_atten_score
-    L. vaadyuthi_excel_sc_dt
-    M. vaadyuthi_excel_sc
-    N. vaadyuthi_face_recog
-    O. vaadyuthi_landmark
-    P. vaadyuthi_test
+Recording Attendance:When Vaadyuthi is recognized, the system records the date and time in a DataFrame and saves the attendance to an Excel file once a specified number of recognitions (5) is reached.
+
+Real-Time Video Processing:The code captures video from the webcam, draws a bounding box around recognized faces, displays "Vaadyuthi" or "Not Vaadyuthi," and shows the video stream in real-time until the 'q' key is pressed.
+
+Output Screenshot:
+
+![7](https://github.com/user-attachments/assets/88bd7fa4-4ea7-42c4-a1de-8bcad7f03a56)
+
+![8](https://github.com/user-attachments/assets/1e847227-5d9a-4d74-bb42-0d4877a64f3d)
+
+B. vaadyuthi_atten_score
+
+1.Face Recognition and Attentiveness:The code recognizes Vaadyuthi's face and calculates an attentiveness score based on her head pose (yaw and pitch). If the score is above 0.5, she is marked as attentive. 
+
+2. Logging and Saving Screenshots:When Vaadyuthi is recognized, the program logs her attendance, attentiveness score, and saves a screenshot with a label indicating her attentiveness.
+
+3. Periodic Data Saving:The attendance and attentiveness data is saved to an Excel file every 30 seconds and also upon program exit to preserve the information.
+
+Output Screenshot:
+
+![9](https://github.com/user-attachments/assets/923cb931-5fd7-4e34-8d23-43ac624e94c2)
+
+![10](https://github.com/user-attachments/assets/9f67776f-260a-423b-851a-d093ea58b214)
+
+C. vaadyuthi_avg_atten_score
+
+Face Recognition and Attentiveness Calculation:The code recognizes Vaadyuthi's face and calculates an attentiveness score based on head pose (yaw and pitch). If the score is above 0.5, she is considered attentive. 
+
+2.Logging and Screenshot Saving:When Vaadyuthi is detected, the program logs her attendance, attentiveness score, and saves a screenshot with a label indicating her attentiveness.
+
+3.**Periodic Data Saving and Average Calculation:**The code saves the attendance data to an Excel file every 30 seconds and calculates the average attentiveness score at the end of the session, appending it to the final log.
+
+Output Screenshot:
+
+![11](https://github.com/user-attachments/assets/4141723a-7e8d-405d-ac42-d0c68816f790)
+
+![12](https://github.com/user-attachments/assets/62a4d720-a3a2-49dd-b655-7b9558bdfbc1)
+
+D. vaadyuthi_excel_sc_dt
+
+Face Recognition and Logging: The code recognizes "Vaadyuthi" by comparing detected faces with a known image, and logs her attendance every 2 minutes or after a 5-minute gap, capturing screenshots with timestamps.
+
+Time-Based Logging and Screenshot Saving:Screenshots are saved with a timestamp on them, and the attendance of "Vaadyuthi" is logged in a DataFrame with a screenshot and time. New entries are logged if 2 minutes pass or if a 5-minute gap occurs.
+
+Periodic Excel Saving:The code saves the attendance DataFrame to an Excel file every 30 seconds, ensuring continuous logging, and performs a final save at the end of the session.
+
+Output Screenshot:
+
+![13](https://github.com/user-attachments/assets/25664870-94f3-42af-8e88-44ab0fc9bcf5)
+
+![14](https://github.com/user-attachments/assets/f84f98f7-e2b1-43ab-8178-1088e18c3353)
+
+E. vaadyuthi_excel_sc
+
+Face Recognition and Logging:The code recognizes "Vaadyuthi" by comparing detected faces with a known image, logging her attendance in a DataFrame with a screenshot and timestamp when she is detected. 
+
+Time-based Logging and Gap Control:It logs an entry for Vaadyuthi every 30 seconds, and if 5 minutes pass without recognition, it logs again. Screenshots are saved with each log.
+
+Periodic Excel Saving:The code periodically saves the attendance DataFrame to an Excel file every 30 seconds and at the end of the session, ensuring all recognized entries are recorded.
+
+Output Screenshot:
+
+![15](https://github.com/user-attachments/assets/8965dfc8-99d3-4145-86a4-58ed7615f689)
+
+![16](https://github.com/user-attachments/assets/207dc863-0078-4672-b94c-b9867e688959)
+
+F. vaadyuthi_face_recog
+
+Face Recognition with Known Image:The code loads a known image (presumed to be Vaadyuthi) and compares detected faces in the video stream with this known image using face encoding.
+
+Face Detection and Recognition in Real-Time:The camera continuously captures frames, detects faces, and compares them to the known face encoding. If the detected face matches the known image (based on a confidence threshold), it labels the face as "Vaadyuthi".
+
+Display and Annotate Video Stream:The code draws bounding boxes around recognized faces and displays the name "Vaadyuthi" or "Not Vaadyuthi" based on whether the face is recognized. The video stream continues until the user presses the 'q' key to stop it.
+
+Output Screenshot:
+
+![17](https://github.com/user-attachments/assets/dc7f1bde-b935-4971-9032-fc5bfee2e5b9)
+
+G. vaadyuthi_landmark
+
+Face Recognition and Landmark Detection:The code captures live video, detects faces, and compares them to a known image of Vaadyuthi. Upon recognizing Vaadyuthi, it performs facial landmark detection to analyze the head pose and detect attentiveness.
+
+Head Pose Analysis for Attentiveness:Using detected facial landmarks, the code estimates the head's yaw, pitch, and roll to determine if Vaadyuthi is attentive (i.e., facing forward with minimal head movement).
+
+Screenshot and Data Logging:If Vaadyuthi is attentive, a screenshot is saved with a label ("Attentive" or "Not Attentive"). This information, along with the date, time, and screenshot path, is logged in a DataFrame and saved to an Excel file every 30 seconds.
+
+Output Screenshot:
+
+![18](https://github.com/user-attachments/assets/a889c0ce-ff05-4919-b4e0-d2fb961a7137)
+
+![19](https://github.com/user-attachments/assets/d62fdbe9-3962-4552-a008-2142abc008f2)
+
+H. vaadyuthi_test
+
+Face Recognition and Attendance Logging:The code uses the face_recognition library to recognize a known face (Vaadyuthi) from the webcam feed. If Vaadyuthi is detected, the code logs the recognition event in a DataFrame with the current date and time.
+
+Entry Validity and Time Gap Handling:The code checks if a person has been recognized within the last 2 minutes. If no recognition has occurred within that time, a new entry is logged. If 5 minutes have passed since the last entry, another entry is recorded for the same person.
+
+Periodic Data Saving:The attendance data (name, date, time) is saved to an Excel file (vaadyuthi_recognized_faces.xlsx) every 30 seconds, ensuring that the information is periodically backed up during the live video stream.
+
+Output Screenshot:
+
+![20](https://github.com/user-attachments/assets/904ff1e1-e097-4f42-a808-01d8e19c2b0c)
+
