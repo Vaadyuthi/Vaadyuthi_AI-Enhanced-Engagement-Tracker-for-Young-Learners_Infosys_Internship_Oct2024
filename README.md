@@ -428,3 +428,20 @@ __Output Screenshot:__
 
 ![20](https://github.com/user-attachments/assets/904ff1e1-e097-4f42-a808-01d8e19c2b0c)
 
+__Additional work__
+
+__A.Emotion Detection__
+
+1. Face Recognition and Emotion Detection:The system uses the face_recognition library to identify a known individual (e.g., "Vaadyuthi") in real-time.
+
+2. Attentiveness Tracking via Head Pose Estimation:Facial landmarks detected using dlib are utilized to calculate head pose (pitch, yaw, and roll angles). The system calculates an attentiveness score based on the alignment of the head with thresholds, logging whether the individual is attentive or not.
+
+3. Real-Time Logging and Visualization:The system overlays text and emojis on the video feed, showing the individual's name, emotion, and attentiveness.Screenshots of the detected face, along with detailed logs (name, date, time, emotion, and attentiveness status), are periodically saved to an Excel file for review and analysis.
+
+__Output Screenshots:__
+
+![21](https://github.com/user-attachments/assets/f5100fc1-57fd-492e-ae6a-9c172cff1f80)
+
+![Vaadyuthi](https://github.com/user-attachments/assets/41c7f24b-4941-4c73-9fdb-bfdc3e8aacd5)
+
+
